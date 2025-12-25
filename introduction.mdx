@@ -1,0 +1,102 @@
+---
+title: Introduction to Francisco Rubio
+description: Discover Francisco Rubio, a versatile documentation platform designed for organizing and managing all your project documentation efficiently.
+---
+
+## Overview
+
+Francisco Rubio provides a centralized space to organize, manage, and collaborate on your project documentation. You create structured docs sites with MDX support, version control, and search capabilities. Build professional documentation portals without managing complex infrastructure.
+
+This platform handles everything from API references to user guides, ensuring your team stays aligned. Start by creating your first page and explore built-in components for rich, interactive content.
+
+<Callout kind="info">
+  New to Francisco Rubio? Follow the [Quickstart](/quickstart) guide to set up your docs site in under 5 minutes.
+</Callout>
+
+## Key Features
+
+Francisco Rubio offers powerful tools to streamline your documentation workflow.
+
+<Columns cols={3}>
+  <Card title="MDX Components" icon="code" href="/components">
+    Use pre-built components like `<Steps>`, `<Tabs>`, and `<Cards>` to create engaging docs without custom code.
+  </Card>
+  <Card title="Version Control" icon="git-branch" href="/versioning">
+    Track changes, collaborate with teams, and publish versioned docs effortlessly.
+  </Card>
+  <Card title="Search & Navigation" icon="search" href="/search">
+    Full-text search and intuitive sidebar navigation keep users finding content quickly.
+  </Card>
+  <Card title="Custom Themes" icon="palette" href="/themes">
+    Apply your brand colors, like `#3B82F6`, for a cohesive look.
+  </Card>
+</Columns>
+
+## Quick Start
+
+Get your documentation site live quickly with these steps.
+
+<Steps>
+  <Step title="Create Account" icon="user-plus">
+    Sign up at `https://dashboard.example.com` using your email.
+  </Step>
+  <Step title="New Project" icon="plus">
+    Click "New Docs Site" and enter your project name, like "My API Docs".
+  </Step>
+  <Step title="Add First Page" icon="file-plus">
+    Create `introduction.mdx` and add your YAML frontmatter:
+
+    <CodeGroup tabs="MDX">
+    ```mdx
+    ---
+    title: My Project
+    description: Overview of my project docs.
+    ---
+    ## Welcome
+    Start here.
+    ```
+    </CodeGroup>
+  </Step>
+  <Step title="Publish" icon="rocket">
+    Hit "Publish" to generate your live site at `https://docs.example.com/my-project`.
+  </Step>
+</Steps>
+
+## Quick Navigation
+
+Jump to essential sections to build your docs.
+
+<Columns cols={2}>
+  <Card title="Get Started" icon="book-open" href="/quickstart">
+    Set up your first site and add content.
+  </Card>
+  <Card title="Authentication" icon="lock" href="/authentication">
+    Secure your docs with API keys and access controls.
+  </Card>
+  <Card title="Guides" icon="help-circle" href="/guides">
+    Advanced topics and best practices.
+  </Card>
+  <Card title="Changelog" icon="git-commit" href="/changelog">
+    Stay updated with new features and fixes.
+  </Card>
+</Columns>
+
+## Brand Guidelines
+
+Follow these guidelines to maintain consistency across your docs.
+
+<Expandable title="Color Scheme & Typography" default-open="true">
+  Use the primary brand color `#3B82F6` for accents and links. Pair with neutral grays for text (`#1F2937` for body, `#111827` for headings).
+
+  | Element      | Color       | Usage                  |
+  |--------------|-------------|------------------------|
+  | Primary     | `#3B82F6`  | Buttons, links, icons |
+  | Secondary   | `#6B7280`  | Subtle text, borders  |
+  | Background  | `#FFFFFF`  | Main content areas    |
+
+  Typography: Headings in bold sans-serif, body text at 16px for readability.
+</Expandable>
+
+<Callout kind="tip">
+  Customize your theme in project settings. Preview changes live before publishing. Explore [themes](/themes) for more options.
+</Callout>

@@ -1,0 +1,179 @@
+---
+title: Authentication and Permissions
+description: Secure your documentation projects with robust authentication methods and manage user permissions effectively.
+---
+
+## Overview
+
+Francisco Rubio provides secure authentication to protect your documentation projects. You authenticate using email and password, OAuth providers, or API tokens for integrations. Once logged in, role-based access controls (RBAC) manage permissions across projects and teams.
+
+<Callout kind="alert">
+  Always use HTTPS endpoints like `https://api.example.com` for authentication requests. Store tokens securely and rotate them regularly.
+</Callout>
+
+## Authentication Methods
+
+Choose from multiple methods based on your needs.
+
+<Tabs>
+  <Tab title="Email & Password" icon="mail">
+
+    Log in with your Francisco Rubio credentials.
+
+    <CodeGroup tabs="JavaScript,cURL">
+      ```javascript
+      const response = await fetch('https://api.example.com/v1/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: 'user@example.com',
+          password: 'your-password'
+        })
+      });
+      const data = await response.json();
+      console.log(data.access_token);
+      ```
+      ```bash
+      curl -X POST https://api.example.com/v1/auth/login \
+        -H "Content-Type: application/json" \
+        -d '{
+          "email": "user@example.com",
+          "password": "your-password"
+        }'
+      ```
+    </CodeGroup>
+
+  </Tab>
+  <Tab title="OAuth (Google)" icon="users">
+
+    Connect your Google account for seamless login.
+
+    <Steps>
+      <Step title="Redirect to OAuth" icon="external-link">
+        Visit `https://api.example.com/v1/auth/oauth/google` to start the flow.
+      </Step>
+      <Step title="Handle Callback">
+        After approval, handle the callback URL with `code` parameter.
+      </Step>
+      <Step title="Exchange Code">
+        ```javascript
+        const token = await fetch('https://api.example.com/v1/auth/oauth/google/token', {
+          method: 'POST',
+          body: new URLSearchParams({ code: 'auth-code' })
+        });
+        ```
+      </Step>
+    </Steps>
+
+  </Tab>
+  <Tab title="API Tokens" icon="key">
+
+    Generate tokens for machine-to-machine integrations.
+
+    See [Generating API Tokens](#generating-api-tokens) below.
+
+  </Tab>
+</Tabs>
+
+## Role-Based Access Control
+
+Francisco Rubio uses RBAC to define permissions. Assign roles to users or teams.
+
+| Role       | Read Projects | Edit Content | Manage Members | Delete Projects |
+|------------|---------------|--------------|----------------|-----------------|
+| Viewer     | ✅            | ❌           | ❌             | ❌              |
+| Editor     | ✅            | ✅           | ❌             | ❌              |
+| Admin      | ✅            | ✅           | ✅             | ✅              |
+
+<ParamField header="X-Project-Role" param-type="string" required="false">
+  Specifies role for project access: `viewer`, `editor`, or `admin`.
+</ParamField>
+
+<ParamField query="permission" param-type="string" required="true">
+  Permission scope: `read`, `write`, `admin`.
+</ParamField>
+
+## Inviting Team Members
+
+Add collaborators to your projects securely.
+
+<Steps>
+  <Step title="Navigate to Team Settings" icon="settings">
+    Go to your project dashboard at `https://dashboard.example.com/projects/{projectId}/team`.
+  </Step>
+  <Step title="Enter Email" icon="mail">
+    Input the email address and select role.
+  </Step>
+  <Step title="Send Invite">
+    Click "Invite". They receive an email with a join link valid for 7 days.
+  </Step>
+</Steps>
+
+## Generating API Tokens
+
+Create personal access tokens (PATs) for CI/CD or scripts.
+
+<Request tabs="cURL,JavaScript">
+  ```bash
+  curl -X POST https://api.example.com/v1/tokens \
+    -H "Authorization: Bearer YOUR_API_KEY" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "name": "CI Token",
+      "scopes": ["read", "write"]
+    }'
+  ```
+  ````javascript
+  const response = await fetch('https://api.example.com/v1/tokens', {
+    method: 'POST',
+    headers: {
+      'Authorization': 'Bearer YOUR_API_KEY',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      name: 'CI Token',
+      scopes: ['read', 'write']
+    })
+  });
+  ````
+</Request>
+
+<Response tabs="201">
+  ```json
+  {
+    "token": "fr_abc123def456ghi789",
+    "expires_at": "2025-12-31T23:59:59Z",
+    "scopes": ["read", "write"]
+  }
+  ```
+</Response>
+
+<Callout kind="tip">
+  Tokens expire after 1 year. Use short-lived tokens for webhooks.
+</Callout>
+
+<Expandable title="Advanced Token Scopes" default-open="false">
+
+  | Scope   | Description                  |
+  |---------|------------------------------|
+  | `read`  | View projects and content    |
+  | `write` | Edit and publish documents   |
+  | `admin` | Full access including delete |
+
+</Expandable>
+
+## Security Best Practices
+
+- Never expose tokens in client-side code.
+- Use environment variables: `process.env.FRANCISCO_TOKEN`.
+- Monitor token usage in your dashboard.
+- Revoke compromised tokens immediately.
+
+<Columns cols={2}>
+  <Card title="Quickstart" icon="rocket" href="/quickstart">
+    Set up your first project.
+  </Card>
+  <Card title="API Reference" icon="code" href="/introduction">
+    Explore full API docs.
+  </Card>
+</Columns>

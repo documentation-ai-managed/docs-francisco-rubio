@@ -1,0 +1,115 @@
+---
+title: Getting Started with Francisco Rubio
+description: Follow these steps to set up your account and create your first documentation space quickly.
+---
+
+## Prerequisites
+
+Before you begin, ensure you have the following:
+
+<Callout kind="info">
+
+- A modern web browser like Chrome, Firefox, or Safari
+- An email address for account verification
+- Optional: GitHub account for version control integration
+
+</Callout>
+
+## Step 1: Sign Up for an Account
+
+Start by creating your Francisco Rubio account.
+
+<Steps>
+  <Step title="Visit the Dashboard" icon="monitor">
+    Navigate to `https://dashboard.franciscorubio.com` and click **Sign Up**.
+  </Step>
+  <Step title="Enter Your Details" icon="user">
+    Provide your email, full name, and a strong password. Accept the terms of service.
+  </Step>
+  <Step title="Verify Email" icon="mail">
+    Check your inbox for a verification email and click the link to activate your account.
+  </Step>
+</Steps>
+
+## Step 2: Create Your First Documentation Project
+
+Once logged in, set up your project space.
+
+<Steps>
+  <Step title="New Project" icon="plus">
+    Click **New Project** in the dashboard sidebar.
+  </Step>
+  <Step title="Configure Basics" icon="settings">
+    Enter a project name like `My Docs`, select a template (e.g., "Blank" or "API Docs"), and choose your brand color `#3B82F6`.
+  </Step>
+  <Step title="Save and Publish" icon="save">
+    Click **Create**. Your project is now live at a URL like `https://docs.franciscorubio.com/my-docs`.
+  </Step>
+</Steps>
+
+## Interface Tour
+
+Francisco Rubio's interface includes key areas to explore:
+
+<Columns cols={3}>
+  <Card title="Editor" icon="edit-3" href="#editor">
+    Write MDX content with live preview.
+  </Card>
+  <Card title="Files" icon="file-text" href="#files">
+    Manage pages, assets, and navigation.
+  </Card>
+  <Card title="Settings" icon="settings" href="#settings">
+    Customize themes, SEO, and integrations.
+  </Card>
+</Columns>
+
+## Upload Your First Content
+
+Add content using these methods:
+
+<Tabs>
+  <Tab title="MDX Page" icon="file">
+    Create a new file `introduction.mdx`.
+
+    <CodeGroup tabs="MDX">
+````mdx
+```mdx
+---
+title: Introduction
+description: Welcome to your docs.
+---
+
+## Hello World
+
+Your first documentation page!
+```
+````
+    </CodeGroup>
+  </Tab>
+  <Tab title="Image Asset" icon="image">
+    Drag and drop images into the `/public` folder. Use in MDX like:
+
+````mdx
+```mdx
+<Image src="/logo.png" alt="Francisco Rubio logo" width="300" height="100" />
+```
+````
+  </Tab>
+</Tabs>
+
+<Callout kind="tip">
+  Preview changes live. Use `npm run dev` if working locally with the CLI.
+</Callout>
+
+## Next Steps
+
+<Columns cols={2}>
+  <Card title="Customize Navigation" icon="menu" href="/configuration">
+    Learn menu setup and sidebar options.
+  </Card>
+  <Card title="Add Authentication" icon="shield" href="/authentication">
+    Secure your docs with user logins.
+  </Card>
+</Columns>
+
+Congratulations! You now have a live documentation site. Explore the [full docs](/introduction) for advanced features.

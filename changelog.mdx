@@ -1,0 +1,116 @@
+---
+title: Changelog
+description: Track the latest updates, improvements, and fixes in Francisco Rubio to stay informed about new features.
+---
+
+## Recent Updates
+
+Stay current with Francisco Rubio by reviewing the latest releases. You receive notifications for major versions, and each update includes detailed changelogs to help you upgrade smoothly.
+
+<Callout kind="info">
+  Subscribe to our RSS feed at `/rss.xml` or join the Discord community for real-time announcements.
+</Callout>
+
+<Update label="2024-10-15" description="v1.2.0" tags={["feature", "improvement"]}>
+## New Features
+
+- Added real-time collaboration for shared documentation spaces
+- Introduced dark mode toggle with automatic system preference detection
+
+## Improvements
+
+- Enhanced search performance by `>40%` with indexed full-text queries
+- Optimized image loading for faster page renders
+
+## Bug Fixes
+
+- Fixed markdown parsing issues with nested lists
+- Resolved mobile sidebar navigation glitches
+</Update>
+
+<Update label="2024-09-20" description="v1.1.0" tags={["feature", "bugfix"]}>
+## New Features
+
+- Integrated API for programmatic document management via `https://api.example.com/docs`
+- Added version history with diff viewer for page edits
+
+## Improvements
+
+- Streamlined sidebar navigation with drag-and-drop reordering
+
+## Bug Fixes
+
+- Corrected export to PDF functionality for tables and code blocks
+- Patched authentication token refresh on long sessions
+</Update>
+
+<Update label="2024-08-10" description="v1.0.0" tags={["breaking", "feature"]}>
+## New Features
+
+- Core documentation editor with MDX support and live preview
+- User authentication via OAuth with `https://auth.example.com`
+- Customizable themes and brand colors (default: `#3B82F6`)
+
+## Breaking Changes
+
+- Updated API endpoints from `/v0` to `/v1` paths
+
+## Bug Fixes
+
+- Initial stability improvements for editor autosave
+</Update>
+
+## Upcoming Roadmap
+
+Explore what's next for Francisco Rubio. These milestones guide our development priorities.
+
+<Columns cols={3}>
+  <Card title="Q4 2024" icon="calendar" href="#roadmap-q4">
+    AI-assisted content generation and multi-language support.
+  </Card>
+  <Card title="Q1 2025" icon="rocket" href="#roadmap-q1">
+    Advanced analytics dashboard at `https://dashboard.example.com`.
+  </Card>
+  <Card title="Community Features" icon="users" href="/introduction">
+    Plugin ecosystem and public templates.
+  </Card>
+</Columns>
+
+## Upgrade Process
+
+Follow these steps to update your Francisco Rubio instance.
+
+<Steps>
+  <Step title="Backup" icon="database">
+    Export your current data:
+
+````bash
+curl -H "Authorization: Bearer YOUR_API_KEY" \
+  https://api.example.com/export > backup.json
+````
+
+  </Step>
+  <Step title="Update" icon="download">
+    Use your package manager:
+
+    <Tabs>
+      <Tab title="npm" icon="package">
+````bash
+npm update francisco-rubio --save
+````
+      </Tab>
+      <Tab title="yarn" icon="package">
+````bash
+yarn upgrade francisco-rubio
+````
+      </Tab>
+    </Tabs>
+  </Step>
+  <Step title="Verify" icon="check-circle">
+    Test core functionality and review breaking changes above.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  For migration code examples from v1.0 to v1.2, check the [full release notes](https://github.com/franciscorubio/docs/releases).
+</Callout>
